@@ -7,4 +7,4 @@ from extensions import socket
 
 if __name__ == '__main__':
     application = create_app()
-    socket.run(application, host='0.0.0.0', port=6000)
+    socket.run(application, host='0.0.0.0', port=5000)
