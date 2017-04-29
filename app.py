@@ -2,7 +2,7 @@ from flask import Flask
 from flask_assets import Bundle
 from extensions import socket, asset_env
 from views import views_bp
-# must import this
+# must import this for handlers to be registered
 import sock
 
 
