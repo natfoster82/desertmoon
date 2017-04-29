@@ -1,0 +1,23 @@
+@import 'vendor/neat';
+
+$grid: (
+  columns: 12,
+  gutter: 10px,
+);
+
+.grid {
+  @include grid-container;
+}
+
+.column {
+  @include grid-column(1, $grid);
+}
+
+.column--empty {
+  height: 20rem;
+}
+
+.column--fancy {
+  background-image: linear-gradient(to bottom right, #21e9f4, #00d4ff);
+  color: #fff;
+}

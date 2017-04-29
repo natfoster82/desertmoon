@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desert Moon</title>
+    {% assets 'css' %}
+        <link rel="stylesheet" href="{{ ASSET_URL }}">
+    {% endassets %}
+</head>
+<body>
+<div class="custom-grid--thirds">
+    <div class="column--empty column--fancy column"></div>
+    <div class="column--empty column--fancy column"></div>
+    <div class="column--empty column--fancy column"></div>
+    <div class="column--empty column--fancy column"></div>
+    <div class="column--empty column--fancy column"></div>
+    <div class="column--empty column--fancy column"></div>
+    <div class="column--empty column--fancy column"></div>
+    <div class="column--empty column--fancy column"></div>
+    <div class="column--empty column--fancy column"></div>
+    <div class="column--empty column--fancy column"></div>
+    <div class="column--empty column--fancy column"></div>
+    <div class="column--empty column--fancy column"></div>
+</div>
+<script>
+    var GLOBALS = {
+        user: {{ 'yo'|tojson }}
+    };
+</script>
+{% assets 'js' %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
+</body>
+</html>

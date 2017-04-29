@@ -7,15 +7,19 @@
 click==6.7                # via flask
 enum-compat==0.0.2        # via eventlet
 eventlet==0.21.0
+flask-assets==0.12
 flask-socketio==2.8.6
 flask==0.12.1
 greenlet==0.4.12          # via eventlet
 gunicorn==19.7.1
 itsdangerous==0.24        # via flask
 jinja2==2.9.6             # via flask
+jsmin==2.2.1
+libsass==0.12.3
 markupsafe==1.0           # via jinja2
 python-engineio==1.4.0    # via flask-socketio, python-socketio
 python-socketio==1.7.4    # via flask-socketio
 redis==2.10.5
-six==1.10.0               # via python-engineio, python-socketio
+six==1.10.0               # via libsass, python-engineio, python-socketio
+webassets==0.12.1         # via flask-assets
 werkzeug==0.12.1          # via flask
