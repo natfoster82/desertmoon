@@ -10,20 +10,14 @@
     {% endassets %}
 </head>
 <body>
-<div class="custom-grid--thirds">
-    <div class="column--empty column--fancy column"></div>
-    <div class="column--empty column--fancy column"></div>
-    <div class="column--empty column--fancy column"></div>
-    <div class="column--empty column--fancy column"></div>
-    <div class="column--empty column--fancy column"></div>
-    <div class="column--empty column--fancy column"></div>
-    <div class="column--empty column--fancy column"></div>
-    <div class="column--empty column--fancy column"></div>
-    <div class="column--empty column--fancy column"></div>
-    <div class="column--empty column--fancy column"></div>
-    <div class="column--empty column--fancy column"></div>
-    <div class="column--empty column--fancy column"></div>
+{% raw %}
+<div id="app">
+    <ul>
+        <li v-for="log in logs">[{{ log.timestamp }}] {{ log.handle }}: {{ log.text }}</li>
+    </ul>
+    <input type="text" v-model="command" v-on:keyup.enter="submit"/>
 </div>
+{% endraw %}
 <script>
     var GLOBALS = {
         user: {{ 'yo'|tojson }}

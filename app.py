@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_assets import Bundle
 from extensions import socket, asset_env
-from views import *
+from views import views_bp
 # must import this
 import sock
 
@@ -24,8 +24,9 @@ def create_app():
 
     js = Bundle(
         'src/js/vendor/socket.io.js',
+        'src/js/vendor/vue.js' if app.debug else 'vue.min.js',
         'src/js/app.js',
-        filters='jsmin',
+        filters=None if app.debug else 'jsmin',
         output='gen/app.js'
     )
 
