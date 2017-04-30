@@ -24,6 +24,7 @@ def create_app():
 
     js = Bundle(
         'src/js/vendor/socket.io.js',
+        'src/js/vendor/markdown-it.js',
         'src/js/vendor/vue.js' if app.debug else 'src/js/vendor/vue.js',
         'src/js/app.js',
         filters=None if app.debug else 'jsmin',

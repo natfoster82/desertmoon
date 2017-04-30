@@ -13,14 +13,20 @@
 {% raw %}
 <div id="app">
     <ul>
-        <li v-for="log in logs">[{{ log.timestamp }}] {{ log.handle }}: {{ log.text }}</li>
+        <li v-for="log in logs">
+            <div>{{ log.handle }}</div>
+            <div v-html="log.html"></div>
+        </li>
     </ul>
+    <span v-if="prompt">{{ prompt.text }}</span>
+    <span v-if="!prompt">{{ handle }}@{{ room }}</span>
     <input type="text" v-model="command" v-on:keyup.enter="submit"/>
 </div>
 {% endraw %}
 <script>
     var GLOBALS = {
-        user: {{ 'yo'|tojson }}
+        handle: {{ handle|tojson }},
+        room: {{ room|tojson }}
     };
 </script>
 {% assets 'js' %}
