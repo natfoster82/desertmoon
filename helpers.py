@@ -4,10 +4,6 @@ import string
 from random import choice
 
 
-redis_store = StrictRedis.from_url(REDIS_URL, db=1, decode_responses=True)
-redis_store_2 = StrictRedis.from_url(REDIS_URL, db=2)
-
-
 def random_string(length, numbers=True, letters=True):
     chars = []
     if numbers:
