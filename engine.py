@@ -1,5 +1,35 @@
 from flask_socketio import join_room, leave_room
-from helpers import random_string
+from helpers import random_string, redis_store
+
+
+class Command(object):
+    def __init__(self, command, prompt_responses, room, subject, handle):
+        split_command = command.split(' ', 1)
+        verb = split_command[0][1:]
+        try:
+            params = split_command[1:]
+        except IndexError:
+            params = []
+
+        self.verb = verb
+        self.params = params
+        self.prompt_responses = prompt_responses
+        self.room = room
+        self.subject = subject
+        self.handle = handle
+        self.prompt = None
+        self.default = ''
+        self.log_text = ''
+
+    def execute(self):
+        state = redis_store.get(self.room)
+        if state:
+            campaign = state['campaign']
+            engine = ENGINES.get(campaign, ENGINES['global'])
+        else:
+            engine = ENGINES['global']
+
+        engine.execute(self)
 
 
 class Engine(object):
