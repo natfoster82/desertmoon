@@ -4,7 +4,7 @@ import string
 from random import choice
 
 
-redis_store = StrictRedis.from_url(REDIS_URL)
+redis_store = StrictRedis.from_url(REDIS_URL, decode_responses=True)
 
 
 def random_string(length, numbers=True, letters=True):

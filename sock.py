@@ -1,6 +1,6 @@
 from extensions import socket
 from flask_socketio import emit, join_room
-from engine import Command
+from command import Command
 
 
 @socket.on('launch')
@@ -36,8 +36,9 @@ def on_submit(data):
     if command.startswith('/'):
         command_obj = Command(command, prompt_responses, room, subject, handle)
         command_obj.execute()
-        if not command_obj.prompt and command_obj.log_text:
-            emit('log', {'handle': '', 'text': command_obj.log_text}, room=command_obj.room)
+        if not command_obj.prompt and command_obj.logs:
+            for log in command_obj.logs:
+                emit('log', {'handle': '', 'text': log['text']}, room=log['room'])
 
         room = command_obj.room
         subject = command_obj.subject
