@@ -59,15 +59,15 @@ def on_submit(data):
                 room = new_room
                 init_payload = {
                     'handle': '',
-                    'text': '{0} has joined this simulation (Session ID: {1})'.format(handle, room)
+                    'text': '{0} has joined this simulation (Simulation ID: {1})'.format(handle, room)
                 }
                 emit('log', init_payload, room=room)
         elif verb == 'enter':
-            new_room = params[0] if params else prompt_responses.get('session_id')
+            new_room = params[0] if params else prompt_responses.get('simulation_id')
             new_handle = prompt_responses.get('handle')
 
             if not new_room:
-                prompt = {'text': 'Session ID:', 'key': 'session_id'}
+                prompt = {'text': 'Simulation ID:', 'key': 'simulation_id'}
             elif not new_handle:
                 prompt = {'text': 'Enter a new handle:', 'key': 'handle'}
                 default = handle
@@ -78,7 +78,7 @@ def on_submit(data):
                 room = new_room
                 init_payload = {
                     'handle': '',
-                    'text': '{0} has joined this simulation (Session ID: {1})'.format(handle, room)
+                    'text': '{0} has joined this simulation (Simulation ID: {1})'.format(handle, room)
                 }
                 emit('log', init_payload, room=room)
         else:
