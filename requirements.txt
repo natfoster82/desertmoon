@@ -19,6 +19,7 @@ libsass==0.12.3
 markupsafe==1.0           # via jinja2
 python-engineio==1.4.0    # via flask-socketio, python-socketio
 python-socketio==1.7.4    # via flask-socketio
+pyyaml==3.12
 redis==2.10.5
 six==1.10.0               # via libsass, python-engineio, python-socketio
 webassets==0.12.1         # via flask-assets

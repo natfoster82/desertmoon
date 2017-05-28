@@ -54,6 +54,9 @@
             log.html = md.render(log.text);
             vm.logs.push(log);
         });
+        socket.on('connect', function() {
+            socket.emit('join_room', vm.room)
+        });
         socket.emit('launch', {'handle': vm.handle});
     }
     init();
